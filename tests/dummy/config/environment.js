@@ -19,7 +19,26 @@ module.exports = function(environment) {
     },
 
     persistence: {
-      containers: []
+      containers: [
+        {
+          name: 'Local',
+          config: {
+            namespace: 'local-enterprise',
+          }
+        },
+        {
+          name: 'Session',
+          config: {
+            namespace: 'session-enterprise',
+          }
+        },
+        {
+          name: 'Ephemeral',
+          config: {
+            namespace: 'ephemeral-enterprise',
+          }
+        }
+      ]
     }
   };
 

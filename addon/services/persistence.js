@@ -5,7 +5,6 @@ import getOwner from 'ember-getowner-polyfill';
 
 const {
   assert,
-  get,
   getWithDefault,
   on,
   set

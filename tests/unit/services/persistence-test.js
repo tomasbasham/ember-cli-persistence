@@ -4,6 +4,12 @@ import Sinon from 'sinon';
 let sandbox;
 
 moduleFor('service:persistence', 'Unit | Service | persistence', {
+  needs: [
+    'ember-cli-persistence@container:ephemeral',
+    'ember-cli-persistence@container:local',
+    'ember-cli-persistence@container:session'
+  ],
+
   beforeEach() {
     sandbox = Sinon.sandbox.create();
   },
