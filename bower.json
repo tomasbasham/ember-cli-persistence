@@ -1,6 +1,0 @@
-{
-  "name": "ember-cli-persistence",
-  "dependencies": {
-    "sinonjs": "^1.17.1"
-  }
-}
