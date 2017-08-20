@@ -1,6 +1,6 @@
 # Ember-cli-persistence [![Build Status](https://travis-ci.org/tomasbasham/ember-cli-persistence.svg?branch=master)](https://travis-ci.org/tomasbasham/ember-cli-persistence)
 
-An [Ember CLI](http://www.ember-cli.com/) addon to interface with front end persistence containers.
+An [Ember CLI](https://ember-cli.com/) addon to interface with front end persistence containers.
 
 Most modern applications require the ability to persist data and state for the runtime of the application. This data may be temporary and only last the duration of the session or could perhaps be longer lasting, requiring that the application be able to fetch this data at a later point in time.
 
@@ -174,18 +174,18 @@ export default Ember.Controller.extend({
 
 ### Installation
 
-* `git clone` this repository
+* `git clone <repository-url>` this repository
+* `cd ember-cli-persistence`
 * `npm install`
-* `bower install`
 
 ### Running
 
-* `ember server`
-* Visit your app at http://localhost:4200.
+* `ember serve`
+* Visit your app at [http://localhost:4200](http://localhost:4200).
 
 ### Running Tests
 
-* `npm test` (Runs `ember try:testall` to test your addon against multiple Ember versions)
+* `npm test` (Runs `ember try:each` to test your addon against multiple Ember versions)
 * `ember test`
 * `ember test --server`
 
@@ -193,4 +193,4 @@ export default Ember.Controller.extend({
 
 * `ember build`
 
-For more information on using ember-cli, visit [http://www.ember-cli.com/](http://www.ember-cli.com/).
+For more information on using ember-cli, visit [https://ember-cli.com/](https://ember-cli.com/).

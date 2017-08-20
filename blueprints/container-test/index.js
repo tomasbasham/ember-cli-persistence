@@ -1,4 +1,5 @@
-/*jshint node:true*/
+/* eslint-env node */
+
 module.exports = {
   description: 'Generates a persistence container adapter unit test.',
 
