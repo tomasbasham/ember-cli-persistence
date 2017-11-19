@@ -1,6 +1,6 @@
 {
   "name": "ember-cli-persistence",
-  "version": "0.0.1",
+  "version": "1.1.0",
   "description": "An ember-cli addon to interface with front end persistence containers.",
   "directories": {
     "doc": "doc",
