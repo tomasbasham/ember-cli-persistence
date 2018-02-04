@@ -1,13 +1,4 @@
-import Ember from 'ember';
-
-const {
-  isPresent
-} = Ember;
-
-const {
-  parse,
-  stringify
-} = JSON;
+import { isPresent } from '@ember/utils';
 
 /*
  * Stringify an object so it can be inserted into the store
@@ -23,7 +14,7 @@ const {
  */
 export function toJson(value) {
   if (isPresent(value)) {
-    return stringify(value);
+    return JSON.stringify(value);
   }
 
   return value;
@@ -44,7 +35,7 @@ export function toJson(value) {
 export function toObject(value) {
   if (isPresent(value)) {
     try {
-      value = parse(value);
+      value = JSON.parse(value);
     } catch(e) {
       value = null;
     }

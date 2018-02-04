@@ -1,14 +1,10 @@
-import Ember from 'ember';
 import Base from 'ember-cli-persistence/containers/base';
 import { toJson, toObject } from 'ember-cli-persistence/utils/object-transforms';
 
-const {
-  assert,
-  computed,
-  get,
-  isPresent,
-  merge
-} = Ember;
+import { assert } from '@ember/debug';
+import { computed, get } from '@ember/object';
+import { merge } from '@ember/polyfills';
+import { isPresent } from '@ember/utils';
 
 export default Base.extend({
 
@@ -16,11 +12,11 @@ export default Base.extend({
    * Create a simple map object to
    * act as an in-memory store.
    *
-   * @type {Ember.Map}
+   * @type {Object}
    */
   storage: computed({
     get() {
-      return Ember.Map.create();
+      return new Map();
     }
   }).readOnly(),
 
@@ -122,7 +118,7 @@ export default Base.extend({
    *   Set of options to use when retrieving the key.
    */
   clear({ options } = {}) {
-    const storage = this.get('storage');
+    const storage = get(this, 'storage');
 
     this.keys(options).forEach(function(key) {
       storage.delete(key);

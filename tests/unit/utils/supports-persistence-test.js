@@ -1,4 +1,4 @@
-import supportsPersistence from '../../../utils/supports-persistence';
+import supportsPersistence from 'dummy/utils/supports-persistence';
 import { module, test } from 'qunit';
 
 module('Unit | Utility | supports persistence');

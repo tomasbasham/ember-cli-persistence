@@ -1,8 +1,4 @@
-import Ember from 'ember';
-
-const {
-  assert
-} = Ember;
+import { assert } from '@ember/debug';
 
 /*
  * Determine whether the current environment has support

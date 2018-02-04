@@ -1,12 +1,9 @@
 /* global Storage */
 
-import Ember from 'ember';
-import { moduleFor, test } from 'ember-qunit';
 import Sinon from 'sinon';
 
-const {
-  get
-} = Ember;
+import { get } from '@ember/object';
+import { moduleFor, test } from 'ember-qunit';
 
 let sandbox;
 

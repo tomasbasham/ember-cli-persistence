@@ -1,10 +1,9 @@
-import Ember from 'ember';
+import EmberError from '@ember/error';
+
 import Base from 'ember-cli-persistence/containers/base';
 import supportsPersistence from 'ember-cli-persistence/utils/supports-persistence';
 
-const {
-  computed
-} = Ember;
+import { computed } from '@ember/object';
 
 export default Base.extend({
 
@@ -17,7 +16,7 @@ export default Base.extend({
   storage: computed({
     get() {
       if (!supportsPersistence('sessionStorage')) {
-        Ember.Error('sessionStorage is unavailable in this environment');
+        EmberError('sessionStorage is unavailable in this environment');
       }
 
       return window.sessionStorage;

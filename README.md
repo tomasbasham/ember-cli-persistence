@@ -1,4 +1,4 @@
-# Ember-cli-persistence [![Build Status](https://travis-ci.org/tomasbasham/ember-cli-persistence.svg?branch=master)](https://travis-ci.org/tomasbasham/ember-cli-persistence)
+# ember-cli-persistence [![Build Status](https://travis-ci.org/tomasbasham/ember-cli-persistence.svg?branch=master)](https://travis-ci.org/tomasbasham/ember-cli-persistence)
 
 An [Ember CLI](https://ember-cli.com/) addon to interface with front end
 persistence containers.
@@ -44,7 +44,7 @@ the `persistence` service.
 ```JavaScript
 // config/environment.js
 module.exports = function(environment) {
-  var ENV = {
+  let ENV = {
     persistence: {
       containers: [
         {
@@ -106,10 +106,7 @@ export function initialize(application) {
   application.inject('route', 'persistence', 'service:persistence');
 };
 
-export default {
-  name: 'persistence',
-  initialize: initialize
-};
+export default { initialize };
 ```
 
 This will make the `persistence` service available to all controllers and
@@ -121,10 +118,11 @@ recommended that you include the service on a per object basis.
 
 ```JavaScript
 // app/controllers/application.js
-import Ember from 'ember';
+import Controller from '@ember/controller';
+import { inject } from '@ember/service';
 
-export default Ember.Controller.extend({
-  persistence: Ember.inject.service()
+export default Controller.extend({
+  persistence: inject()
 });
 ```
 
@@ -137,12 +135,12 @@ all objects that need access to the service.
 The `persistence` service implements an abstract API that currently supports
 the following methods:
 
-* setItem
-* getItem
-* removeItem
-* key
-* clear
-* length
+* `setItem`
+* `getItem`
+* `removeItem`
+* `key`
+* `clear`
+* `length`
 
 When using this API, by default the service will call the corresponding method
 on each of the adapters unless a specific adapter is specified. This means that
@@ -154,15 +152,20 @@ persistence containers configured in `config/environment`.
 
 ```JavaScript
 // app/controllers/application.js
-import Ember from 'ember';
+import Controller from '@ember/controller';
 
-export default Ember.Controller.extend({
-  persistence: Ember.inject.service(),
+import { get } from '@ember/object';
+import { inject } from '@ember/service';
 
-  storeTime: Ember.on('init', function() {
-    const persistence = this.get('persistence');
-    persistence.setItem({ key: 'time', value: Date() });
-  })
+export default Controller.extend({
+  persistence: inject(),
+
+  actions: {
+    storeTime() {
+      const persistence = get(this, 'persistence');
+      persistence.setItem({ key: 'time', value: Date() });
+    }
+  }
 });
 ```
 
@@ -175,15 +178,20 @@ specify the name.
 
 ```JavaScript
 // app/controllers/application.js
-import Ember from 'ember';
+import Controller from '@ember/controller';
 
-export default Ember.Controller.extend({
-  persistence: Ember.inject.service(),
+import { get } from '@ember/object';
+import { inject } from '@ember/service';
 
-  storeTime: Ember.on('init', function() {
-    const persistence = this.get('persistence');
-    persistence.setItem('Local', { key: 'time', value: Date() });
-  })
+export default Controller.extend({
+  persistence: inject(),
+
+  actions: {
+    storeTime() {
+      const persistence = get(this, 'persistence');
+      persistence.setItem('Local', { key: 'time', value: Date() });
+    }
+  }
 });
 ```
 
@@ -198,17 +206,23 @@ Promise API to access it.
 
 ```JavaScript
 // app/controllers/application.js
-import Ember from 'ember';
+import Controller from '@ember/controller';
 
-export default Ember.Controller.extend({
-  persistence: Ember.inject.service(),
+import { get } from '@ember/object';
+import { inject } from '@ember/service';
 
-  getTime: Ember.on('init', function() {
-    const persistence = this.get('persistence');
-    persistence.getItem('Local', { key: 'time' }).then(function(values) {
-      console.log(values['Local']); // Will print the value returned from the LocalStorage adapter.
-    });
-  })
+export default Controller.extend({
+  persistence: inject(),
+
+  actions: {
+    getTime() {
+      const persistence = get(this, 'persistence');
+      persistence.getItem('Local', { key: 'time' }).then(function(values) {
+        // Print the value returned from the LocalStorage adapter.
+        console.log(values['Local']);
+      });
+    }
+  }
 });
 ```
 

@@ -1,4 +1,4 @@
-import { toJson, toObject } from '../../../utils/object-transforms';
+import { toJson, toObject } from 'dummy/utils/object-transforms';
 import { module, test } from 'qunit';
 
 module('Unit | Utility | object transforms');

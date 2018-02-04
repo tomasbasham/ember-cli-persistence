@@ -1,20 +1,16 @@
-import Ember from 'ember';
+import Service from '@ember/service';
+
 import Adaptable from 'ember-cli-adapter-pattern/mixins/adaptable';
 import proxyToAdapter from 'ember-cli-adapter-pattern/utils/proxy-to-adapter';
 
-const {
-  assert,
-  getOwner,
-  getWithDefault,
-  on,
-  set
-} = Ember;
+import { getOwner } from '@ember/application';
+import { A } from '@ember/array';
+import { assert } from '@ember/debug';
+import { getWithDefault, set } from '@ember/object';
+import { on } from '@ember/object/evented';
+import { dasherize } from '@ember/string';
 
-const {
-  dasherize
-} = Ember.String;
-
-export default Ember.Service.extend(Adaptable, {
+export default Service.extend(Adaptable, {
 
   /*
    * Add a key to the store, or update
@@ -84,7 +80,7 @@ export default Ember.Service.extend(Adaptable, {
    * @on init
    */
   createAdapters: on('init', function() {
-    const adapters = getWithDefault(this, 'config.persistence.containers', Ember.A());
+    const adapters = getWithDefault(this, 'config.persistence.containers', A());
     const owner = getOwner(this);
 
     // Containers should not be instantiated.

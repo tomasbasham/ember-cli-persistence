@@ -1,15 +1,14 @@
-import Ember from 'ember';
+import EmberObject from '@ember/object';
+
 import Namespaceable from 'ember-cli-persistence/mixins/namespaceable';
 import { toJson, toObject } from 'ember-cli-persistence/utils/object-transforms';
 
-const {
-  assert,
-  get,
-  isPresent,
-  merge
-} = Ember;
+import { assert } from '@ember/debug';
+import { get } from '@ember/object';
+import { merge } from '@ember/polyfills';
+import { isPresent } from '@ember/utils';
 
-export default Ember.Object.extend(Namespaceable, {
+export default EmberObject.extend(Namespaceable, {
 
   /*
    * The specific storage object for
@@ -119,9 +118,7 @@ export default Ember.Object.extend(Namespaceable, {
    */
   keys(options = {}) {
     const storage = get(this, 'storage');
-    const _options = merge({
-      global: false
-    }, options || {});
+    const _options = merge({ global: false }, options || {});
 
     return Object.keys(storage).filter((key) => {
       return _options.global || this.isNamespacedKey(key);

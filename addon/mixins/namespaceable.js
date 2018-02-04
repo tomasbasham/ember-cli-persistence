@@ -1,12 +1,9 @@
-import Ember from 'ember';
+import Mixin from '@ember/object/mixin';
 
-const {
-  computed,
-  get,
-  isPresent
-} = Ember;
+import { computed, get } from '@ember/object';
+import { isPresent } from '@ember/utils';
 
-export default Ember.Mixin.create({
+export default Mixin.create({
 
   /*
    * Default namespace for application
