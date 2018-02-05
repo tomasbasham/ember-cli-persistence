@@ -16,7 +16,7 @@ moduleFor('container:base', 'Unit | Container | base', {
 test('it implements setItem', function(assert) {
   let container = this.subject();
 
-  const spy = sandbox.stub(container, 'setItem', function() {
+  const spy = sandbox.stub(container, 'setItem').callsFake(function() {
     return true;
   });
 
@@ -27,7 +27,7 @@ test('it implements setItem', function(assert) {
 test('it implements getItem', function(assert) {
   let container = this.subject();
 
-  const spy = sandbox.stub(container, 'getItem', function() {
+  const spy = sandbox.stub(container, 'getItem').callsFake(function() {
     return true;
   });
 
@@ -38,7 +38,7 @@ test('it implements getItem', function(assert) {
 test('it implements removeItem', function(assert) {
   let container = this.subject();
 
-  const spy = sandbox.stub(container, 'removeItem', function() {
+  const spy = sandbox.stub(container, 'removeItem').callsFake(function() {
     return true;
   });
 
@@ -49,7 +49,7 @@ test('it implements removeItem', function(assert) {
 test('it implements key', function(assert) {
   let container = this.subject();
 
-  const spy = sandbox.stub(container, 'key', function() {
+  const spy = sandbox.stub(container, 'key').callsFake(function() {
     return true;
   });
 
@@ -60,7 +60,7 @@ test('it implements key', function(assert) {
 test('it implements keys', function(assert) {
   let container = this.subject();
 
-  const spy = sandbox.stub(container, 'keys', function() {
+  const spy = sandbox.stub(container, 'keys').callsFake(function() {
     return true;
   });
 
@@ -71,7 +71,7 @@ test('it implements keys', function(assert) {
 test('it implements clear', function(assert) {
   let container = this.subject();
 
-  const spy = sandbox.stub(container, 'clear', function() {
+  const spy = sandbox.stub(container, 'clear').callsFake(function() {
     return true;
   });
 
@@ -82,7 +82,7 @@ test('it implements clear', function(assert) {
 test('it implements length', function(assert) {
   let container = this.subject();
 
-  const spy = sandbox.stub(container, 'length', function() {
+  const spy = sandbox.stub(container, 'length').callsFake(function() {
     return true;
   });
 

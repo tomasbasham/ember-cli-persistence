@@ -57,7 +57,7 @@ test('#key calls keys with correct arguments', function(assert) {
   let container = this.subject();
 
   const storage = get(container, 'storage');
-  const stub = sandbox.stub(Object, 'keys', function() {
+  const stub = sandbox.stub(Object, 'keys').callsFake(function() {
     return [];
   });
 
@@ -69,7 +69,7 @@ test('#keys calls keys with correct arguments', function(assert) {
   let container = this.subject();
 
   const storage = get(container, 'storage');
-  const stub = sandbox.stub(Object, 'keys', function() {
+  const stub = sandbox.stub(Object, 'keys').callsFake(function() {
     return [];
   });
 
@@ -93,7 +93,7 @@ test('#length calls keys with correct arguments', function(assert) {
   let container = this.subject();
 
   const storage = get(container, 'storage');
-  const stub = sandbox.stub(Object, 'keys', function() {
+  const stub = sandbox.stub(Object, 'keys').callsFake(function() {
     return [];
   });
 
