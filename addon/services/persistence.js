@@ -6,7 +6,7 @@ import proxyToAdapter from 'ember-cli-adapter-pattern/utils/proxy-to-adapter';
 import { getOwner } from '@ember/application';
 import { A } from '@ember/array';
 import { assert } from '@ember/debug';
-import { getWithDefault, set } from '@ember/object';
+import { computed, getWithDefault, set } from '@ember/object';
 import { on } from '@ember/object/evented';
 import { dasherize } from '@ember/string';
 
@@ -66,6 +66,18 @@ export default Service.extend(Adaptable, {
    * @method length
    */
   length: proxyToAdapter('length'),
+
+  /*
+   * Grab the application config for the
+   * current environment.
+   *
+   * @type {Object}
+   */
+  config: computed({
+    get() {
+      return getOwner(this).resolveRegistration('config:environment');
+    }
+  }).readOnly(),
 
   /*
    * Fetch the adapter configuation and
