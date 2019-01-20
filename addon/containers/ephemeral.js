@@ -3,7 +3,7 @@ import { toJson, toObject } from 'ember-cli-persistence/utils/object-transforms'
 
 import { assert } from '@ember/debug';
 import { computed, get } from '@ember/object';
-import { merge } from '@ember/polyfills';
+import { assign } from '@ember/polyfills';
 import { isPresent } from '@ember/utils';
 
 export default Base.extend({
@@ -96,7 +96,7 @@ export default Base.extend({
    */
   keys({ options } = {}) {
     const keys = [];
-    const _options = merge({
+    const _options = assign({}, {
       global: false
     }, options || {});
 
