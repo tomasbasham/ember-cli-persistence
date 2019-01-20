@@ -1,6 +1,7 @@
 import Mixin from '@ember/object/mixin';
 
-import { computed, get } from '@ember/object';
+import { get } from '@ember/object';
+import { alias } from '@ember/object/computed';
 import { isPresent } from '@ember/utils';
 
 export default Mixin.create({
@@ -11,7 +12,7 @@ export default Mixin.create({
    *
    * @type {String}
    */
-  namespace: computed.alias('config.namespace'),
+  namespace: alias('config.namespace'),
 
   /*
    * Prepend the namespace to the key
