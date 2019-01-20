@@ -1,4 +1,4 @@
-# ember-cli-persistence [![Build Status](https://travis-ci.org/tomasbasham/ember-cli-persistence.svg?branch=master)](https://travis-ci.org/tomasbasham/ember-cli-persistence)
+# ember-cli-persistence [![Build Status](https://travis-ci.com/tomasbasham/ember-cli-persistence.svg?branch=master)](https://travis-ci.com/tomasbasham/ember-cli-persistence)
 
 An [Ember CLI](https://ember-cli.com/) addon to interface with front end
 persistence containers.
